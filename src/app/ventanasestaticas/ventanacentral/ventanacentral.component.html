@@ -1,5 +1,7 @@
 <p>VENTANA CENTRAL COMIENZO</p>
 
+<p>Bienvenido Usuario del tipo '{{ this.usuarioActual.getTipoUsuario() }}</p>
+
 @switch(this.usuarioActual.getAcceso()){
     @case (0) {<app-ingreso></app-ingreso>}
     @case (1) {<app-registro></app-registro>}
