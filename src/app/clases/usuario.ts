@@ -1,4 +1,4 @@
-interface Usuario {
+export interface Usuario {
     nombre: string;
     apellido: string;
     email: string;
@@ -6,7 +6,7 @@ interface Usuario {
     palabraSecreta: string;
   }
   
-  class Paciente implements Usuario {
+  export class Paciente implements Usuario {
     nombre: string;
     apellido: string;
     email: string;
@@ -22,13 +22,13 @@ interface Usuario {
     }
   }
   
-  interface Profesional extends Usuario {
+  export interface Profesional extends Usuario {
     especialidad: string;
     diasAtencion: string[];
     segundaPalabraSecreta: string;
   }
   
-  class Profesional implements Profesional { 
+  export class Profesional implements Profesional { 
     nombre: string;
     apellido: string;
     email: string;
@@ -59,7 +59,7 @@ interface Usuario {
     }
   }
   
-  class Gerente implements Usuario {
+  export class Gerente implements Usuario {
     nombre: string;
     apellido: string;
     email: string;
