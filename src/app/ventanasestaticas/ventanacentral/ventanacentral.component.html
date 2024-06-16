@@ -1,1 +1,9 @@
-<p>ventanacentral works!</p>
+<p>VENTANA CENTRAL COMIENZO</p>
+
+@switch(ventanaActiva){
+    @case (1) {<app-ingreso></app-ingreso>}
+    @case (2) {<app-registro></app-registro>}
+    @default {<app-error class="main"></app-error>}
+}
+
+<p>VENTANA CENTRAL FINAL</p>
