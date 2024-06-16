@@ -4,14 +4,35 @@ export interface Usuario {
     email: string;
     password: string;
     palabraSecreta: string;
+    acceso: number;
+
+    getAcceso(): number;
+    getTipoUsuario(): string;
   }
   
+  export class UsuariosinIngresar implements Usuario {
+    nombre = '';
+    apellido = '';
+    email = '';
+    password = '';
+    palabraSecreta = '';
+    acceso = 0;
+
+    getAcceso(): number {return this.acceso;}
+    getTipoUsuario(): string {return 'usuario sin identificar'}
+
+  }
+
   export class Paciente implements Usuario {
     nombre: string;
     apellido: string;
     email: string;
     password: string;
     palabraSecreta: string;
+    acceso = 1;
+
+    getAcceso(): number {return this.acceso;}
+    getTipoUsuario(): string {return 'Paciente'}
   
     constructor(nombre: string, apellido: string, email: string, password: string, palabraSecreta: string) {
       this.nombre = nombre;
@@ -34,9 +55,13 @@ export interface Usuario {
     email: string;
     password: string;
     palabraSecreta: string;
+    acceso = 2;
     especialidad: string;
     diasAtencion: string[];
     segundaPalabraSecreta: string;
+
+    getAcceso(): number {return this.acceso;}
+    getTipoUsuario(): string {return 'Profesional'}
   
     constructor(
       nombre: string,
@@ -65,6 +90,10 @@ export interface Usuario {
     email: string;
     password: string;
     palabraSecreta: string;
+    acceso = 3;
+
+    getAcceso(): number {return this.acceso;}
+    getTipoUsuario(): string {return 'Gerente'}
   
     constructor(nombre: string, apellido: string, email: string, password: string, palabraSecreta: string) {
       this.nombre = nombre;
@@ -73,4 +102,6 @@ export interface Usuario {
       this.password = password;
       this.palabraSecreta = palabraSecreta;
     }
-  }  
+  }
+
+
