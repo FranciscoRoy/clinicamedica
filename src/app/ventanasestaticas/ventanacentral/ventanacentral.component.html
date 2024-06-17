@@ -2,11 +2,11 @@
 
 <p>Bienvenido Usuario del tipo '{{ this.usuarioActual.getTipoUsuario() }}</p>
 
-@switch(this.usuarioActual.getAcceso()){
-    @case (0) {<app-ingreso></app-ingreso>}
-    @case (1) {<app-registro></app-registro>}
-    @case (2) {<app-registro></app-registro>}
-    @case (3) {<app-registro></app-registro>}
+@switch(this.ventanaActivaActual){
+    @case ('inicio') {<app-inicio></app-inicio>}
+    @case ('ingreso') {<app-ingreso></app-ingreso>}
+    @case ('registro') {<app-registro></app-registro>}
+    @case ('datospersonales') {<app-datospersonales></app-datospersonales>}
     @default {<app-error></app-error>}
 }
 
