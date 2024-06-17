@@ -36,10 +36,14 @@ export class RegistroComponent {
 
       // Aquí puedes agregar la lógica para manejar el registro del nuevo paciente
       // Por ejemplo, enviarlo a un servicio o mostrar un mensaje de éxito
-      console.log('Nuevo paciente registrado:', nuevoPaciente);
+
+      console.log('Nuevo paciente registrado:', nuevoPaciente); //validacion manual
+
     } else {
+
       // Manejar el caso cuando el formulario no es válido
-      console.log('El formulario no es válido');
+      console.log('El formulario no es válido'); //validacion manual
+
     }
   }
 }
