@@ -7,14 +7,14 @@
  * See a full list of supported triggers at https://firebase.google.com/docs/functions
  */
 
-import {onRequest} from "firebase-functions/v2/https";
-import * as logger from "firebase-functions/logger";
+//LO SIGUIENTE CAUSA ERRORES PERO ESTA INDICADO:
+//import {onRequest} from "firebase-functions/v2/https";
+//import * as logger from "firebase-functions/logger";
 
 const { initializeApp, applicationDefault, cert } = require('firebase-admin/app');
 const { getFirestore, Timestamp, FieldValue, Filter } = require('firebase-admin/firestore');
 
 initializeApp();
-
 const db = getFirestore();
 
 //LO SIGUIENTE ES EJEMPLO
