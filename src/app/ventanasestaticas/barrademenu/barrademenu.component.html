@@ -1,1 +1,35 @@
-<p>barrademenu works!</p>
+<p>Barra de Menu COMIENZO</p>
+
+<div [ngSwitch]="usuarioActivo.acceso" class="menu">
+
+    <button (click)="inicio()">Inicio</button>
+
+    <div *ngSwitchCase="0">
+        <button  (click)="ingresar()">Ingresar</button>
+        <button (click)="registrarse()">Registrarse</button>
+        <button>Contactarnos</button>
+        <button (click)="setPaciente()">Set Paciente</button>
+    </div>
+
+    <div *ngSwitchCase="1">
+        <button>Mis Turnos</button>
+        <button (click)="misDatos()">Mis Datos</button>
+        <button (click)="salir()">Salir</button>
+    </div>
+
+    <div *ngSwitchCase="2">
+        <button (click)="misDatos()">Mis Datos</button>
+        <button (click)="salir()">Salir</button>
+    </div>
+
+    <div *ngSwitchCase="3">
+        <button (click)="misDatos()">Mis Datos</button>
+        <button (click)="salir()">Salir</button>
+        <button (click)="setPaciente()">Set Paciente</button>
+        <button (click)="setProfesional()">Set Profesional</button>
+        <button (click)="setGerente()">Set Gerente</button>
+    </div>
+
+</div>
+
+<p>Barra de Menu FIN</p>

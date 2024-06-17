@@ -1,27 +1,28 @@
 import { Injectable } from '@angular/core';
-import { Usuario, UsuariosinIngresar, Paciente, Profesional, Gerente } from '../clases/usuario'; // Importar la clase Usuario
+import { BehaviorSubject } from 'rxjs';
+import { Usuario, UsuariosinIngresar, Paciente, Profesional, Gerente } from '../clases/usuario'; // Importar las clases de usuario
 
 @Injectable({
   providedIn: 'root' // Proveer el servicio a nivel de aplicación
 })
 export class UsuarioActivoService {
-
-  private usuarioActual: Usuario = new UsuariosinIngresar(); //inicializa con un usuario sin ingreso
+  private usuarioActualSubject = new BehaviorSubject<Usuario>(new UsuariosinIngresar()); // inicializa con un usuario sin ingreso
+  usuarioActual$ = this.usuarioActualSubject.asObservable();
 
   constructor() { }
 
   // Método para establecer el usuario activo
   setUsuarioActivo(usuario: Usuario) {
-    this.usuarioActual = usuario;
+    this.usuarioActualSubject.next(usuario);
   }
 
   // Método para obtener el usuario activo
   getUsuarioActivo(): Usuario {
-    return this.usuarioActual;
+    return this.usuarioActualSubject.value;
   }
 
   // Método para verificar si hay un usuario activo
   estaUsuarioActivo(): boolean {
-    return this.usuarioActual !== null;
+    return this.usuarioActualSubject.value !== null;
   }
 }

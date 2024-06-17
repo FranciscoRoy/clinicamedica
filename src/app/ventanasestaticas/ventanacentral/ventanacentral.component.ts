@@ -19,9 +19,12 @@ export class VentanacentralComponent implements OnInit  {
   usuarioActual: Usuario = new UsuariosinIngresar;
   ventanaActivaActual: string = 'inicio';
 
-  constructor(private usuarioActivoService: UsuarioActivoService, private ventanaActivaService: VentanaActivaService) { }
+  constructor(
+    private ventanaActivaService: VentanaActivaService,
+    private usuarioActivoService: UsuarioActivoService,
+  ) { }
   ngOnInit(): void {
-    this.usuarioActual = this.usuarioActivoService.getUsuarioActivo();
+    this.usuarioActivoService.usuarioActual$.subscribe(usuario => {this.usuarioActual = usuario;});
     this.ventanaActivaService.getVentanaActiva().subscribe(ventanaActiva => {this.ventanaActivaActual = ventanaActiva;})
   }
 }
